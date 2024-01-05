@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RWD Template 1</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f1f1f1;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        .row::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        [class*="col-"] {
+            float: left;
+            padding: 15px;
+        }
+
+        /* For Mobile Phone Screens */
+        [class*="col-"] {
+            width: 100%;
+        }
+
+
+        /* For Small Devices Portrait tablets, large phones, 600px and up */
+        @media only screen and (min-width: 600px) {
+            .col-sm-1 {
+                width: 8.33%;
+            }
+
+            .col-sm-2 {
+                width: 16.66%;
+            }
+
+            .col-sm-3 {
+                width: 25%;
+            }
+
+            .col-sm-4 {
+                width: 33.32%;
+            }
+
+            .col-sm-5 {
+                width: 41.65%;
+            }
+
+            .col-sm-6 {
+                width: 50%;
+            }
+
+            .col-sm-7 {
+                width: 58.81%;
+            }
+
+            .col-sm-8 {
+                width: 66.64%;
+            }
+
+            .col-sm-9 {
+                width: 75%;
+            }
+
+            .col-sm-10 {
+                width: 83.33%;
+            }
+
+            .col-sm-11 {
+                width: 74.97%;
+            }
+
+            .col-sm-12 {
+                width: 100%;
+            }
+        }
+
+        /* For Medium Devices Landscape tablets, 768px and up */
+        @media only screen and (min-width: 768px) {
+            .col-md-1 {
+                width: 8.33%;
+            }
+
+            .col-md-2 {
+                width: 16.66%;
+            }
+
+            .col-md-3 {
+                width: 25%;
+            }
+
+            .col-md-4 {
+                width: 33.32%;
+            }
+
+            .col-md-5 {
+                width: 41.65%;
+            }
+
+            .col-md-6 {
+                width: 50%;
+            }
+
+            .col-md-7 {
+                width: 58.81%;
+            }
+
+            .col-md-8 {
+                width: 66.64%;
+            }
+
+            .col-md-9 {
+                width: 75%;
+            }
+
+            .col-md-10 {
+                width: 83.33%;
+            }
+
+            .col-md-11 {
+                width: 74.97%;
+            }
+
+            .col-md-12 {
+                width: 100%;
+            }
+        }
+
+        /* For Large Devices laptops, desktops, 992px and up */
+        @media only screen and (min-width: 992px) {
+            .col-ld-1 {
+                width: 8.33%;
+            }
+
+            .col-ld-2 {
+                width: 16.66%;
+            }
+
+            .col-ld-3 {
+                width: 25%;
+            }
+
+            .col-ld-4 {
+                width: 33.32%;
+            }
+
+            .col-ld-5 {
+                width: 41.65%;
+            }
+
+            .col-ld-6 {
+                width: 50%;
+            }
+
+            .col-ld-7 {
+                width: 58.81%;
+            }
+
+            .col-ld-8 {
+                width: 66.64%;
+            }
+
+            .col-ld-9 {
+                width: 75%;
+            }
+
+            .col-ld-10 {
+                width: 83.33%;
+            }
+
+            .col-ld-11 {
+                width: 74.97%;
+            }
+
+            .col-ld-12 {
+                width: 100%
+            }
+        }
+
+        /* For Extra Large Devices Large laptops/desktops, 1200px and up */
+        @media only screen and (min-width: 1200px) {
+            .col-xl-1 {
+                width: 8.33%;
+            }
+
+            .col-xl-2 {
+                width: 16.66%;
+            }
+
+            .col-xl-3 {
+                width: 25%;
+            }
+
+            .col-xl-4 {
+                width: 33.32%;
+            }
+
+            .col-xl-5 {
+                width: 41.65%;
+            }
+
+            .col-xl-6 {
+                width: 50%;
+            }
+
+            .col-xl-7 {
+                width: 58.81%;
+            }
+
+            .col-xl-8 {
+                width: 66.64%;
+            }
+
+            .col-xl-9 {
+                width: 75%;
+            }
+
+            .col-xl-10 {
+                width: 83.33%;
+            }
+
+            .col-xl-11 {
+                width: 74.97%;
+            }
+
+            .col-xl-12 {
+                width: 100%;
+            }
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            /* box-shadow: 0 0 10px 10px #dfdfe2; */
+        }
+
+        @media only screen and (max-width: 600px) {
+            .container {
+                width: 100%;
+            }
+        }
+
+        .statistics {
+            border: 1px solid #dfdfe2;
+            /* height: 150vh; */
+            box-shadow: 0 0 2px 2px #dfdfe2;
+            transform: scaleX(0.97) scaleY(0.98);
+            border-radius: 5px;
+            background-color: #fff;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .exp {
+            border: 1px solid #dfdfe2;
+            box-shadow: 0 0 2px 2px #dfdfe2;
+            transform: scalex(0.97) scaleY(0.97);
+            background-color: #fff;
+            border-radius: 5px;
+        }
+
+        .edu {
+            border: 1px solid #dfdfe2;
+            box-shadow: 0 0 2px 2px #dfdfe2;
+            transform: scalex(0.97) scaleY(0.97);
+            border-radius: 5px;
+            background-color: #fff;
+        }
+
+        img {
+            width: 100%;
+            height: 50%;
+            opacity: 1;
+            display: block;
+            height: auto;
+            transition: all 0.5s ease;
+            backface-visibility: hidden;
+        }
+
+        .dp {
+            position: relative;
+            width: 100%;
+        }
+
+        .name {
+            transition: all 0.5s ease;
+            opacity: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            background-color: #ae8873;
+            transform: translate(-50%, -50%);
+            border-radius: 5px;
+        }
+
+        .text {
+            color: #fff;
+            font-size: 1em;
+            padding: 1em 2em;
+        }
+
+        .dp:hover img {
+            opacity: 0.3;
+        }
+
+        .dp:hover .name {
+            opacity: 1;
+        }
+
+        .contact {
+            font-size: 0.8em;
+            border-bottom: 1px solid #dfdfe2;
+        }
+
+        .skills {
+            position: relative;
+        }
+
+        .contact span,
+        .skills span {
+            color: #009688;
+            font-size: 1em;
+            padding: 0px 0.25em;
+        }
+
+        ul li {
+            list-style-type: none;
+            margin-left: 1em;
+            padding: 5px;
+            color: #a4a4a4;
+        }
+
+        ul {
+            padding: 0;
+        }
+
+        .skills label {
+            width: 100%;
+            padding: 5px;
+            display: block;
+            color: #757575;
+            font-size: 0.8em;
+            font-weight: 500;
+        }
+
+        .show-progress {
+            display: inline-block;
+            position: absolute;
+            background-color: #009688;
+            color: #fff;
+            border-radius: 0.5em;
+            border: none;
+            padding: 0.3em 0.5em;
+            /* box-shadow: 0 0 2px 2px #dfdfe2; */
+            right: 10px;
+            top: 5px;
+        }
+
+        progress {
+            -webkit-appearance: none;
+            width: 100%;
+        }
+
+        progress::-webkit-progress-value {
+            border-radius: 1.25em;
+            background-color: #009688;
+            transition: all 2s ease-in-out;
+        }
+
+        progress::-webkit-progress-bar {
+            background-color: #f1f1f1;
+            border-radius: 1.25em;
+            color: #fff;
+            box-shadow: -2px 1px 2px 2px #dfdfe2 inset;
+        }
+
+        .skills p {
+            padding: 5px;
+            color: #757575;
+            font-weight: 600;
+            margin: 0;
+        }
+
+
+        footer {
+            background-color: #009688;
+            text-align: center;
+            color: #fff;
+            padding: 10px;
+            font-size: 0.8em;
+        }
+
+        footer ul li {
+            list-style-type: none;
+            display: inline-block;
+            padding: 0;
+        }
+
+        footer span {
+            color: #fff;
+            padding: 0;
+        }
+
+        .exp {
+            color: #757575;
+        }
+
+        .exp span {
+            color: #009688;
+            padding: 0 0.5em;
+        }
+
+        .exp h3 {
+            font-weight: 400;
+        }
+
+        .exp div {
+            border-bottom: 1px solid #dfdfe2;
+        }
+
+        .edu {
+            color: #757575;
+        }
+
+        .edu span {
+            color: #009688;
+            padding: 0 0.5em;
+        }
+
+        .edu h3 {
+            font-weight: 400;
+        }
+
+        .edu div {
+            border-bottom: 1px solid #dfdfe2;
+        }
+
+        .date {
+            font-size: 0.7rem;
+            color: #009688;
+            margin: 0;
+        }
+
+        h5 {
+            margin: 20px 0 10px 0;
+        }
+
+        .description {
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+
+<body style="position: relative; transition: all 2s;" id="body">
+    <!-- <button onclick="dark()"></button> -->
+    <div class="row container">
+        <div class="col-xl-4 col-ld-4 col-md-4 statistics" id="statistics">
+            <div class="dp">
+                <img src="Profile.jpg" alt="Profie Picture">
+                <div class="name">
+                    <div class="text">Ali Akbar Badri</div>
+                </div>
+            </div>
+            <div class="contact">
+                <ul>
+                    <li><span class="fa-solid fa-briefcase"></span> Architect
+                        / Civil Engineer</li>
+                    <li><span class="fa-solid fa-home"></span> Home branch :
+                        3B-A-74-75, New Siyaganj,
+                        Indore, Madhya Pradesh, 452007,</li>
+                    <li><span class="fa-solid fa-building"></span> Mumbai
+                        branch : A-1145/6A, Pawane Village Midc Road,
+                        Industrial Area, Sector 2, Kopar Khairane,
+                        Navi Mumbai, Maharashtra, 400710,</li>
+                    <li><span class="fa-solid fa-envelope"></span>
+                        reliablebtech@gmail.com</li>
+                    <li><span class="fa-solid fa-phone"></span>
+                        +91-9860778621</li>
+                </ul>
+            </div>
+            <div class="skills" style="margin-left: 1vw;">
+                <!-- <button onclick="showProgress()" class="show-progress">Show Progress</button> -->
+                <ul>
+                    <p><span class="fa-solid fa-asterisk"></span> Skills</p>
+                    <li>Aesthetic Design</li>
+                    <li>Project Management</li>
+                    <li>Structural Design</li>
+                    <li>Contract Negotiation</li>
+                    <li>Construction Supervision</li>
+                    <li>Turnkey Solutions</li>
+                    <li>Quality Assurance</li>
+                    <li>Client Relationship Management</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-xl-8 col-ld-8 col-md-8 exp" id="edu">
+            <h3><span class="fa-solid fa-briefcase"></span>Professional
+                Experience</h3>
+            <hr>
+            <div>
+                <h4>Head of Indore Office | Reliable Building
+                    Technology</h4>
+                <p class="date" style="font-size: larger;"><span class="fa-solid fa-calendar-days"></span> 27 Years
+                </p>
+                <p class="description" style="font-size: 1em;">
+                    <li style="margin-top: 0.25em; margin-left: 1vw">Currently serving as the
+                        Head of the Indore office branch of a prominent
+                        Architectural, Civil Engineering, and Interior
+                        Design firm based in Indore with it's other branch
+                        present in Mumbai</li>
+                    <li style="margin-top: 1vw; margin-left: 1vw"> Direct and oversee
+                        operations, project management, and team leadership
+                        at the Indore branch while aligning with the Mumbai
+                        branch's objectives and standards.</li>
+                    <li style="margin-top: 1vw; margin-left: 1vw"> Managed a diverse
+                        portfolio of projects, including significant
+                        contributions to Dawat e Hadiyah's Masjids and
+                        Dargahs, overseeing construction, renovation, and
+                        interior design projects such as overseeing the
+                        construction of Hasanfeer Dargah in Denmal from
+                        start to finish.</li>
+                    <li style="margin-top: 1vw; margin-left: 1vw"> Spearheaded the
+                        successful execution and supervision of residential
+                        ventures, multi-storey buildings, row houses,
+                        complexes, and duplexes, ensuring adherence to
+                        high-quality standards and client
+                        specifications.</li>
+                    <li style="margin-top: 1vw; margin-left: 1vw"> Applied a meticulous
+                        eye for detail and design aesthetics in both
+                        structural design and interior projects, delivering
+                        unique and appealing designs while maintaining the
+                        firm's reputation for excellence.</li>
+                </p>
+            </div>
+
+        </div>
+        <div class="col-xl-8 col-ld-8 col-md-8 edu" id="edu">
+            <!-- <hr> -->
+            <p class="description">
+                <h3><span class="fa-solid fa-star"></span> Objective</h3>
+                <p style="margin-left: 1vw;">Dedicated and seasoned Architecture and Civil
+                    Engineer Project Manager with a proven track record
+                    in executing diverse turnkey and contract-based
+                    projects seeks to contribute expertise, innovation,
+                    and a commitment to excellence to a respected firm.
+                </p>
+                <hr>
+                <h3><span class="fa-solid fa-user"></span> Professional
+                    Summary</h3>
+                <li style="margin-top: 1vw; font-size: 1em; margin-left: 1vw">Adept at
+                    spearheading and
+                    delivering a wide
+                    array of Architecture and Civil Engineering projects
+                    encompassing Masjids, Dargahs, residential ventures,
+                    multi-storey buildings, row houses, and
+                    duplexes.</li>
+                <li style="margin-top: 1vw; font-size: 1em ;margin-left: 1vw">Known for
+                    a meticulous eye for
+                    detail and an
+                    innate sense of design and aesthetics, specializing
+                    in both
+                    structural design and interior projects.</li>
+                <li style="margin-top: 1vw; font-size: 1em; margin-left: 1vw">Excel in
+                    project management,
+                    ensuring the
+                    highest quality and success from conceptualization
+                    to
+                    completion.</li>
+                <li style="margin-top: 1vw; font-size: 1em; margin-left: 1vw">Currently
+                    serving as the Head of
+                    the Indore
+                    office branch for a prestigious architectural, civil
+                    engineering, and interior design firm based in
+                    Indore.
+                </li>
+            </p>
+        </div>
+    </div>
+    </div>
+    <footer id="footer">
+        <p>Find me on Social Media</p>
+        <ul>
+            <li><span class="fa-brands fa-twitter"></span></li>
+            <li><span class="fa-brands fa-facebook"></span></li>
+            <li><span class="fa-brands fa-instagram"></span></li>
+            <li><span class="fa-brands fa-snapchat"></span></li>
+            <li><span class="fa-brands fa-linkedin"></span></li>
+            <li><span class="fa-brands fa-pinterest"></span></li>
+        </ul>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
